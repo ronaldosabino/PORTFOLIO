@@ -1,330 +1,408 @@
 <div class="container-fluid p-0 m-0 app-bg">
-  <div class="navbar-fixa">
-    <nav class="d-flex justify-content-between align-items-center px-4 py-4 bg-dark text-white shadow-sm">
-      <div>
-        <i class="bi bi-bootstrap-reboot fs-1 text-color-primary"></i>
-      </div>
+  <div class="content-wrapper mx-auto">
+    <div class="navbar-fixa">
+      <nav class="d-flex justify-content-between align-items-center px-4 py-4 bg-dark text-white shadow-sm">
+        <div>
+          <i class="bi bi-bootstrap-reboot fs-1 text-color-primary"></i>
+        </div>
 
-      <div class="d-none d-md-block">
-        <ul class="list-group list-group-horizontal gap-2">
+        <div class="d-none d-md-block">
+          <ul class="list-group list-group-horizontal gap-2">
+            <li class="list-group-item bg-transparent text-white border-0">
+              <a class="text-decoration-none text-white" href="#sobre">SOBRE MIM</a>
+            </li>
+            <li class="list-group-item bg-transparent border-0">
+              <a class="text-decoration-none text-white" href="#habilidades">HABILIDADES</a>
+            </li>
+            <li class="list-group-item bg-transparent text-white border-0">
+              <a class="text-decoration-none text-white" href="#formacao">FORMAÇÃO</a>
+            </li>
+            <li class="list-group-item bg-transparent text-white border-0">
+              <a class="text-decoration-none text-white" href="#projetos">PROJETOS</a>
+            </li>
+            <li class="list-group-item bg-transparent text-white border-0">
+              <a class="text-decoration-none text-white" href="#experiencias">EXPERIÊNCIAS</a>
+            </li>
+            <li class="list-group-item bg-transparent text-white border-0">
+              <a class="text-decoration-none text-white" href="#depoimentos">RECOMENDAÇÕES</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="d-md-none p-2" (click)="toggleMenu()">
+
+          <i [ngClass]="openMenu === false ? 'bi bi-list fs-3' : 'bi bi-x-lg fs-3'"></i>
+        </div>
+      </nav>
+
+      <!-- Lista mobile -->
+      <div class=" d-md-none d-flex justify-content-around gap-3 bg-dark mb-5" *ngIf="openMenu">
+        <ul class="list-group text-center rounded-0 gap-1 bg-dark">
           <li class="list-group-item bg-transparent text-white border-0">
-            <a class="text-decoration-none text-white" href="#sobre">SOBRE MIM</a>
-          </li>
-          <li class="list-group-item bg-transparent border-0">
-            <a class="text-decoration-none text-white" href="#habilidades">HABILIDADES</a>
+            <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#sobre">SOBRE MIM</a>
           </li>
           <li class="list-group-item bg-transparent text-white border-0">
-            <a class="text-decoration-none text-white" href="#formacao">FORMAÇÃO</a>
+            <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#formacao">FORMAÇÃO</a>
           </li>
           <li class="list-group-item bg-transparent text-white border-0">
-            <a class="text-decoration-none text-white" href="#projetos">PROJETOS</a>
+            <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#experiencias">EXPERIÊNCIAS</a>
+          </li>
+        </ul>
+
+        <ul class="list-group text-center rounded-0 gap-1 bg-dark mb-3">
+          <li class="list-group-item bg-transparent text-white border-0">
+            <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#habilidades">HABILIDADES</a>
           </li>
           <li class="list-group-item bg-transparent text-white border-0">
-            <a class="text-decoration-none text-white" href="#experiencias">EXPERIÊNCIAS</a>
+            <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#projetos">PROJETOS</a>
           </li>
           <li class="list-group-item bg-transparent text-white border-0">
-            <a class="text-decoration-none text-white" href="#depoimentos">DEPOIMENTOS</a>
+            <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#depoimentos">RECOMENDAÇÕES</a>
           </li>
         </ul>
       </div>
+    </div>
 
-      <div class="d-md-none">
-        <button type="button" class="btn btn-outline-info" (click)="toggleMenu()">
-          <i class="bi bi-list fs-3"></i>
-        </button>
+    <!-- Cabeçalho -->
+    <header class="d-flex justify-content-md-around align-items-center flex-column flex-md-row text-white pt-5 pb-3" data-aos="zoom-in">
+      <div class="pt-md-5">
+        <img src="assets/avatar.png" class="shadow mb-4" alt="Foto de Perfil" width="200" height="200">
       </div>
-    </nav>
+      <div>
 
-    <!-- Lista mobile -->
-    <div class=" d-md-none d-flex justify-content-around gap-3 bg-dark mb-5" *ngIf="openMenu">
-      <ul class="list-group text-center rounded-0 gap-1 bg-dark">
-        <li class="list-group-item bg-transparent text-white border-0">
-          <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#sobre">SOBRE MIM</a>
-        </li>
-        <li class="list-group-item bg-transparent text-white border-0">
-          <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#formacao">FORMAÇÃO</a>
-        </li>
-        <li class="list-group-item bg-transparent text-white border-0">
-          <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#experiencias">EXPERIÊNCIAS</a>
-        </li>
-      </ul>
+        <div class="text-center pt-md-5">
 
-      <ul class="list-group text-center rounded-0 gap-1 bg-dark mb-3">
-        <li class="list-group-item bg-transparent text-white border-0">
-          <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#habilidades">HABILIDADES</a>
-        </li>
-        <li class="list-group-item bg-transparent text-white border-0">
-          <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#projetos">PROJETOS</a>
-        </li>
-        <li class="list-group-item bg-transparent text-white border-0">
-          <a (click)="toggleMenu()" class="text-decoration-none text-white" href="#depoimentos">DEPOIMENTOS</a>
-        </li>
-      </ul>
+          <h1 class="fw-bold">Olá, eu sou <span class="text-color-primary">Ronaldo Sabino</span></h1>
+          <h2 class="text-light-emphasis mb-4">Desenvolvedor Front-End</h2>
+          <button class="btn btn-info text-dark fw-semibold rounded-pill px-4 py-2" (click)="download()">
+            Baixar currículo <i class="bi bi-download ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- SOBRE MIM -->
+    <div class="text-white py-6" id="sobre" data-aos="fade-up">
+      <h1 class="text-center my-4">SOBRE MIM</h1>
+
+      <p class="text-center px-4 px-md-5">Sou um Desenvolvedor Front-End apaixonado por tecnologia e pelo impacto que projetos bem construídos podem gerar. Graduado em Análise e Desenvolvimento de Sistemas, e pós-graduado em Engnharia de Software, desenvolvo soluções eficientes, sempre buscando unir desempenho e usabilidade em cada projeto.</p>
+
+      <p class="text-center px-4 px-md-5">Tenho 22 anos e moro em Recife, um dos maiores polos tecnológicos do Brasil. Desejo atuar em um ambiente com perspectiva e crescimento, onde eu possa aplicar minhas habilidades técnicas e comportamentais, contribuindo ativamente com o sucesso da equipe e a evolução dos produtos desenvolvidos.</p>
     </div>
-  </div>
 
-  <!-- Cabeçalho -->
-  <header class="d-flex justify-content-md-around align-items-center flex-column flex-md-row text-white pt-5 pb-3" data-aos="zoom-in">
-    <div class="pt-md-5">
-      <img src="assets/avatar.png" class="shadow mb-4" alt="Foto de Perfil" width="200" height="200">
+    <!-- EXPERIÊNCIAS -->
+    <div class="text-white py-6 px-4 px-md-5 d-flex flex-column" id="experiencias" data-aos="fade-up">
+
+      <h1 class="text-center my-4" data-aos="fade-up">EXPERIÊNCIAS</h1>
+      <div class="mb-4" data-aos="fade-up">
+        <!-- <h3 class="text-center text-color-primary mb-4 mt-1">PROFISSIONAIS</h3> -->
+        <div class="mb-4 border border-white rounded-4 p-3 card">
+          <h4 class="mb-3">Analista e Desenvolvedor de Sistemas</h4>
+          <h5 class="mb-3">Elógica Processamento de Dados Ltda.</h5>
+          <h6 class="m-0">Agosto de 2024 - Atualmente</h6>
+          <ul class="mt-3">
+            <li>Desenvolvimento e manutenção de interfaces responsivas.</li>
+
+            <li>Consumo de APIs Rest.</li>
+
+            <li>Modernização de sistemas legado, migrando para tecnologias mais atuais e escaláveis.</li>
+
+            <li>Implementação baseada em Design System.</li>
+
+            <li>Versionamento de código.</li>
+
+            <li>Automatizo testes de carga para analisar e identificar fatores como capacidade de resposta e escalabilidade.</li>
+          </ul>
+
+        </div>
+        <div class="border border-white rounded-4 p-3 card">
+          <h4 class="mb-3">Estágio em Tecnologia da Informação</h4>
+          <h5 class="mb-3">Elógica Processamento de Dados Ltda.</h5>
+          <h6 class="m-0">Agosto de 2023 - Julho de 2024</h6>
+          <ul class="mt-3">
+            <li>Desenvolvimento e manutenção de interfaces responsivas.</li>
+
+            <li>Consumo de APIs Rest.</li>
+
+            <li>Modernização de sistemas legado, migrando para tecnologias mais atuais e escaláveis.</li>
+
+            <li>Implementação baseada em Design System.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- <div data-aos="fade-up">
+        <h3 class="text-center text-color-primary mt-3 mb-4">ACADÊMICAS</h3>
+        <div class="mb-4 border border-white rounded-4 p-3 card">
+          <h4 class="mb-3">Bolsista - Programa de Extensão Tecnológica (FACEPE)</h4>
+          <small>2022 - 2023</small>
+          <p class="mt-3 fw-bolder">Inteligência nos Negócios com uso de IA, Machine Learning e BI</p>
+
+          <p>Responsável pela criação de dashboards interativos no Power BI, transformando dados em insights visuais auxiliando na tomada de decisões.</p>
+        </div>
+        <div class="border border-white rounded-4 p-3 card">
+          <h4 class="mb-3">Bolsista - Programa de Extensão Tecnológica (FACEPE)</h4>
+          <small>2022</small>
+          <p class="mt-3 fw-bolder">Chatbot para agendamento de consultas ambulatoriais e procedimentos cirúrgicos</p>
+
+          <p>Responsável pela prototipação e design da interface no Figma, focando em uma experiência de uso intuitiva e eficiente.</p>
+        </div>
+      </div> -->
     </div>
-    <div>
 
-      <div class="text-center pt-md-5">
+    <div class="text-white py-6 px-4 px-md-5" id="formacao" data-aos="fade-up">
+      <h1 class="text-center my-4">FORMAÇÃO</h1>
+      <!-- <ul class="list-unstyled text-center">
+        <li class="border border-white rounded-4 px-3 py-4 card mb-4 bold">🎓 Pós-Graduação em Engenharia de Software
+          <p class="my-2">Faculdade Focus</p>
+          <p class="mb-1">Março de 2025 — Dezembro de 2025</p>
+        </li>
 
-        <h1 class="fw-bold">Olá, eu sou <span class="text-color-primary">Ronaldo Sabino</span></h1>
-        <h2 class="text-light-emphasis mb-4">Desenvolvedor Front-End</h2>
-        <button class="btn btn-info text-dark fw-semibold rounded-pill px-4 py-2" (click)="download()">
-          Baixar currículo <i class="bi bi-download ms-2"></i>
-        </button>
+        <li class="mt-3 border border-white rounded-4 p-3 card">🎓 Tecnólogo em Análise e Desenvolvimento de Sistemas
+          <p class="my-2">Faculdade Senac Pernambuco</p>
+          <p class="mb-1">Março de 2022 — Julho de 2024</p>
+        </li>
+      </ul> -->
+      <div class="text-white d-flex flex-column" id="formacao" data-aos="fade-up">
+
+        <div class="mb-4" data-aos="fade-up">
+          <div class="mb-4 border border-white rounded-4 p-3 card">
+            <h4 class="mb-3">Pós-Graduação Lato Sensu em Engenharia de Software</h4>
+            <h5 class="mb-3">Faculdade Focus</h5>
+            <h6 class="m-0">Março de 2025 - Dezembro de 2025</h6>
+            <p class="mt-3">A Pós-Graduação em Engenharia de Software é voltada para profissionais que desejam aprofundar seus conhecimentos no desenvolvimento, manutenção e gestão de sistemas de software de alta qualidade, escaláveis e alinhados às necessidades do negócio.</p>
+          </div>
+
+          <div class="mb-4 border border-white rounded-4 p-3 card">
+            <h4 class="mb-3">Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas</h4>
+            <h5 class="mb-3">Faculdade Senac Pernambuco</h5>
+            <h6 class="m-0">Março de 2022 - Junho de 2024</h6>
+            <p class="mt-3">Análise e Desenvolvimento de Sistemas é uma graduação de nível superior focada no planejamento, desenvolvimento e gerenciamento de sistemas. Combina teoria e prática para formar profissionais aptos a solucionar problemas, desenvolver software e gerenciar projetos de tecnologia da informação.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="py-6 text-white" id="habilidades" data-aos="fade-up">
+      <h1 class="text-center my-4">HABILIDADES</h1>
+
+      <div class="container px-4 px-md-5">
+        <!-- Carousel -->
+        <div class="border border-white rounded-4 p-3 mx-auto carousel-wrapper">
+
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+              <button *ngFor="let slide of carouselItems; let i = index" type="button" data-bs-target="#carouselExampleControls" [attr.data-bs-slide-to]="i" [class.active]="i === 0">
+              </button>
+            </div>
+
+            <!-- Slides -->
+            <div class="carousel-inner text-white">
+              <div *ngFor="let slide of carouselItems; let i = index" class="carousel-item" [class.active]="i === 0">
+
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h4>{{ slide.title }}</h4>
+                    <small>{{ slide.description }}</small>
+                  </div>
+
+                  <img [src]="slide.image" class="img-fluid" style="max-height: 120px;" />
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev opacity-0" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next opacity-0" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PROJETOS -->
+    <div class="py-6 text-white" id="projetos" data-aos="fade-up">
+      <h1 class="text-center my-4">PROJETOS</h1>
+      <div class="d-flex justify-content-center flex-row gap-3 px-4 px-md-5 mb-3 ">
+        <div class="col-6 border border-white rounded-3 p-3 py-4 card">
+          <a href="https://risoflorai.netlify.app" target="_blank" class="text-decoration-none d-flex flex-column align-items-center">
+            <!-- <img src="assets/avatar.png" alt="" width="50" height="50"> -->
+            <h4>🌱</h4>
+            <h4 class="text-white mt-2 bold">RisoflorAI</h4>
+            <p class="text-white">Chatbot</p>
+          </a>
+        </div>
+        <div class=" col-6 border border-white rounded-3 p-3 py-4 card">
+          <a href="https://menuronaldo.netlify.app" target="_blank" class="text-decoration-none pointer d-flex flex-column align-items-center">
+            <!-- <img src="assets/avatar.png" alt="" width="50" height="50"> -->
+            <h4>🍴</h4>
+            <h4 class="text-white mt-2 bold">Menu</h4>
+            <p class="text-decoration-none text-white">Cardápio digital</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center flex-row gap-3 px-4 px-md-5 mb-3">
+        <div class="d-flex flex-column align-items-center col-6 border border-white rounded-3 p-3  opacity-50">
+          <!-- <img src="assets/avatar.png" alt="" width="50" height="50"> -->
+          <h4>📊</h4>
+          <h4 class="text-white mt-2 bold">Insights</h4>
+          <p class="mb-2">Relatório com gráficos</p>
+          <small class="text-secondary">Em desenvolvimento...</small>
+        </div>
+
+        <div class="d-flex flex-column align-items-center col-6 border border-white rounded-3 p-3  opacity-50">
+          <!-- <img src="assets/avatar.png" alt="" width="50" height="50"> -->
+          <h4>👨🏽‍💻</h4>
+          <h4 class="text-white mt-2 bold">Jornada Digital</h4>
+          <p class="mb-2">Curso de programação</p>
+          <small class="text-secondary">Em desenvolvimento...</small>
+        </div>
       </div>
     </div>
-  </header>
 
-  <!-- SOBRE MIM -->
-  <div class="text-white py-6" id="sobre" data-aos="fade-up">
-    <h1 class="text-center my-4">SOBRE MIM</h1>
 
-    <p class="text-center px-4 px-md-5">Sou um programador Front-End apaixonado por tecnologia e pelo impacto que projetos bem construídos podem gerar. Formado em Análise e Desenvolvimento de Sistemas, desenvolvo soluções modernas e eficientes, sempre buscando unir desempenho, usabilidade e design em cada projeto.</p>
+    <div class="text-white py-6 mb-3" id="depoimentos" data-aos="fade-right">
+      <h1 class="text-center my-4">RECOMENDAÇÕES</h1>
 
-    <p class="text-center px-4 px-md-5">Tenho 22 anos e moro em Recife, um dos maiores polos tecnológicos do Brasil. Desejo atuar em um ambiente com perspectiva e crescimento, onde eu possa aplicar minhas habilidades técnicas e comportamentais, contribuindo ativamente com o sucesso da equipe e a evolução dos produtos desenvolvidos.</p>
-  </div>
-
-  <div class="py-6 text-white" id="habilidades" data-aos="fade-up">
-    <h1 class="text-center my-4">HABILIDADES</h1>
-    <div data-aos="fade-down" data-aos-duration="1800" class="d-flex justify-content-center mt-5 mx-3" style="height: 150px;" id="carousel">
-      <div id="carouselExampleControls" class="carousel slide d-flex align-items-center justify-content-center rounded-5" data-bs-ride="carousel" style="width: 600px;">
-        <!-- Controls -->
-        <button (click)="control()" [class.opacity-0]="controlCarousel" class="carousel-control-prev text-white" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button (click)="control()" [class.opacity-0]="controlCarousel" class="carousel-control-next text-white" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Próximo</span>
-        </button>
-        <div class="carousel-inner text-white">
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="d-flex justify-content-between align-items-center p-3">
-              <div class="text-left">
-                <h4>Angular</h4>
-                <small>Framework Front-End baseado em TypeScript.</small>
-              </div>
-              <img src="assets/angular.png" alt="Imagem 1" class="img-fluid" width="150px" height="150px">
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <div class="d-flex justify-content-between align-items-center p-3">
-              <div class="text-left">
-                <h4>React</h4>
-                <small>Biblioteca Front-End baseada em JavaScript.</small>
-              </div>
-              <img src="assets/react.png" alt="Imagem 2" class="img-fluid" width="150px" height="150px">
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="carousel-item">
-            <div class="d-flex justify-content-between align-items-center py-3 ps-3">
-              <div class="text-left">
-                <h4>TypeScript</h4>
-                <small>Linguagem de programação fortemente tipada.</small>
-              </div>
-              <img src="assets/typescript.png" alt="Imagem 3" class="img-fluid" width="150px" height="150px">
-            </div>
-          </div>
-
-          <!-- Slide 4 -->
-          <div class="carousel-item">
-            <div class="d-flex justify-content-between align-items-center py-3 ps-3">
-              <div class="text-left">
-                <h4>Bootstrap</h4>
-                <small>Framework Front-End focado na estilização.</small>
-              </div>
-              <img src="assets/bootstrap.png" alt="Imagem 3" class="img-fluid p-2" width="150px" height="150px">
-            </div>
-          </div>
-
-          <!-- Slide 5 -->
-          <div class="carousel-item">
-            <div class="d-flex justify-content-between align-items-center py-3 ps-3">
-              <div class="text-left">
-                <h4>GitLab</h4>
-                <small>Plataforma para gerenciar o ciclo de vida do desenvolvimento.</small>
-              </div>
-              <img src="assets/gitlab.png" alt="Imagem 3" class="img-fluid" width="150px" height="150px">
-            </div>
-          </div>
-
-          <!-- Slide 6 -->
-          <div class="carousel-item">
-            <div class="d-flex justify-content-between align-items-center py-3 ps-3">
-              <div class="text-left">
-                <h4>K6</h4>
-                <small>Ferramenta para realizar testes de carga.</small>
-              </div>
-              <img src="assets/k6.png" alt="Imagem 3" class="img-fluid" width="150px" height="150px">
-            </div>
-          </div>
-
-          <!-- Slide 7 -->
-          <div class="carousel-item">
-            <div class="d-flex justify-content-between align-items-center py-3 ps-3">
-              <div class="text-left">
-                <h4>Storybook</h4>
-                <small>Ferramenta para testar e documentar componentes.</small>
-              </div>
-              <img src="assets/storybook.png" alt="Imagem 3" class="img-fluid" width="150px" height="150px">
-            </div>
-          </div>
+      <div class="depoimentos-container d-flex gap-3 px-4">
+        <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
+          <p>"Profissional dedicado. Sempre entrega interfaces limpas e bem estruturadas."</p>
+          <small class="text-secondary">— Victor Félix, UI/UX Designer</small>
+        </div>
+        <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
+          <p>"Ótimo profissional, com excelente domínio em Angular e Front-End de modo geral."</p>
+          <small class="text-secondary">— Ricardo Pimenta, Desenvolvedor VBA</small>
+        </div>
+        <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
+          <p>"Ronaldo está sempre disposto a aprender e contribuir com novas ideias."</p>
+          <small class="text-secondary">— Igor Sousa, Desenvolvedor Front-End</small>
+        </div>
+        <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
+          <p>"Faz um ótimo trabalho em equipe! Recomendo fortemente para qualquer projeto."</p>
+          <small class="text-secondary">— Gabriel Braga, Desenvolvedor Back-End</small>
+        </div>
+        <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
+          <p>"Manda muito bem no front! Sempre entrega telas limpas, rápidas e com uma ótima experiência pro usuário."</p>
+          <small class="text-secondary">— Victor Félix, UI/UX Designer</small>
+        </div>
+        <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
+          <p>"Demonstra profissionalismo e proatividade em todas as etapas do desenvolvimento."</p>
+          <small class="text-secondary">— </small>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="text-white py-6 px-4 px-md-5" id="formacao" data-aos="fade-up">
-    <h1 class="text-center my-4">FORMAÇÃO</h1>
-    <ul class="list-unstyled text-center">
-      <li class="border border-white rounded-4 px-3 py-4 card mb-4">🎓 Pós-Graduação em Engenharia de Software
-        <p class="my-2">Faculdade Focus • 2025 — Atualmente</p>
-      </li>
+  <footer class="footer mt-5 text-light pt-5">
+    <div class="container">
 
-      <li class="mt-3 border border-white rounded-4 p-3 card">🎓 Tecnólogo em Análise e Desenvolvimento de Sistemas
-        <p class="my-2">Faculdade Senac Pernambuco • 2022 — 2024</p>
-      </li>
-    </ul>
-  </div>
+      <!-- TOP GRID -->
+      <div class="row gy-4">
 
-  <!-- PROJETOS -->
-  <div class="py-6 text-white" id="projetos" data-aos="fade-up">
-    <h1 class="text-center my-4">PROJETOS</h1>
-    <div class="d-flex justify-content-center flex-row gap-3 px-4 px-md-5 mb-3 ">
-      <div class="col-6 border border-white rounded-3 p-3 py-4 card">
-        <a href="https://github.com/ronaldosabino" target="_blank" class="text-decoration-none d-flex flex-column align-items-center">
-          <img src="assets/avatar.png" alt="" width="50" height="50">
-          <span class="text-white mt-2 bold">RisoflorAI</span>
-          <small class="text-white">Chatbot</small>
-        </a>
+        <!-- BRAND / ABOUT -->
+        <div class="col-12 col-md-4">
+          <h4 class="fw-semibold mb-3">Ronaldo Sabino</h4>
+
+          <p class="footer-text">
+            Desenvolvedor Front-End especializado em Angular, focado em criar
+            interfaces modernas, responsivas e com excelente experiência do usuário.
+            Apaixonado por tecnologia e soluções que geram impacto real.
+          </p>
+
+          <!-- SOCIAL -->
+          <div class="d-flex gap-3 mt-3">
+            <a href="https://linkedin.com/in/ronaldo-sabino-62053423b" target="_blank" class="social-icon">
+              <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="https://github.com/ronaldosabino" target="_blank" class="social-icon">
+              <i class="bi bi-github"></i>
+            </a>
+
+            <a href="https://wa.me/5581994479584?text=Olá%20Ronaldo!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade." target="_blank" class="social-icon">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- LINKS -->
+        <div class="col-6 col-md-2">
+          <h6 class="fw-semibold mb-3">Navegação</h6>
+
+          <ul class="list-unstyled footer-links">
+            <li><a class="text-decoration-none text-white" href="#sobre">Sobre</a></li>
+            <li><a class="text-decoration-none text-white" href="#experiencias">Experiências</a></li>
+            <li><a class="text-decoration-none text-white" href="#formacao">Formação</a></li>
+            <li><a class="text-decoration-none text-white" href="#habilidades">Habilidades</a></li>
+            <li><a class="text-decoration-none text-white" href="#projetos">Projetos</a></li>
+            <li><a class="text-decoration-none text-white" href="#depoimentos">Recomendações</a></li>
+          </ul>
+        </div>
+
+        <!-- STACK -->
+        <div class="col-6 col-md-3">
+          <h6 class="fw-semibold mb-3">Tecnologias</h6>
+
+          <ul class="list-unstyled footer-text">
+            <li>⚡ Angular • TypeScript</li>
+            <li>🎨 Bootstrap • Tailwind</li>
+            <li>🧠 UI/UX • Responsividade</li>
+            <li>🚀 APIs • Performance Web</li>
+          </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="col-12 col-md-3">
+          <h6 class="fw-semibold mb-3">Contato</h6>
+
+          <p class="footer-text mb-2">
+            <i class="bi bi-telephone me-2"></i>
+            <span>(81) 99447-9584</span>
+          </p>
+
+          <p class="footer-text mb-2">
+            <i class="bi bi-envelope me-2"></i>
+            <span>filiperonaldo1.gmail.com</span>
+          </p>
+
+          <p class="footer-text mb-2">
+            <i class="bi bi-geo-alt me-2"></i>
+            <span>Recife • Brasil</span>
+          </p>
+
+          <a href="https://wa.me/5581994479584?text=Olá%20Ronaldo!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20uma%20oportunidade." target="_blank">
+            <button class="btn btn-outline-info btn-sm rounded-pill text-light fw-semibold ">
+              Vamos conversar! 🚀
+            </button>
+          </a>
+        </div>
       </div>
-      <div class=" col-6 border border-white rounded-3 p-3 py-4 card">
-        <a href="https://github.com/ronaldosabino/MENU" target="_blank" class="text-decoration-none pointer d-flex flex-column align-items-center">
-          <img src="assets/avatar.png" alt="" width="50" height="50">
-          <span class="text-white mt-2 bold">Your Restaurant</span>
-          <small class="text-decoration-none text-white">Cardápio digital</small>
-        </a>
+
+      <!-- DIVIDER -->
+      <hr class="footer-divider my-4" />
+
+      <!-- BOTTOM -->
+      <div class="d-flex flex-column flex-md-row justify-content-center align-items-center pb-3 gap-2">
+        <small class="opacity-75">
+          © 2026 Ronaldo Sabino. Todos os direitos reservados.
+        </small>
+
       </div>
-    </div>
-
-    <div class="d-flex justify-content-center flex-row gap-3 px-4 px-md-5 mb-3">
-      <div class="d-flex flex-column align-items-center col-6 border border-white rounded-3 p-3  opacity-50">
-        <img src="assets/avatar.png" alt="" width="50" height="50">
-        <span class="text-white mt-2 bold">Insights</span>
-        <small>Relatório automático</small>
-        <small class="text-secondary">Em desenvolvimento...</small>
-      </div>
-
-      <div class="d-flex flex-column align-items-center col-6 border border-white rounded-3 p-3  opacity-50">
-        <img src="assets/avatar.png" alt="" width="50" height="50">
-        <span class="text-white mt-2 bold">Jornada Digital</span>
-        <small>Curso de programação</small>
-        <small class="text-secondary">Em desenvolvimento...</small>
-      </div>
-    </div>
-  </div>
-
-  <div class="text-white py-6 px-4 px-md-5 d-flex flex-column" id="experiencias" data-aos="fade-up">
-
-    <h1 class="text-center my-4" data-aos="fade-up">EXPERIÊNCIAS</h1>
-    <div class="mb-4" data-aos="fade-up">
-      <h3 class="text-center text-color-primary mb-4 mt-1">PROFISSIONAIS</h3>
-      <div class="mb-4 border border-white rounded-4 p-3 card">
-        <h4 class="mb-3">Desenvolvedor Front-End — Elogica Processamento de Dados</h4>
-        <small>2024 - Atualmente</small>
-        <p class="mt-3">Responsável pelo desenvolvimento, manutenção de interfaces responsivas e consumo de APIs utilizando Angular.</p>
-
-        <p>Conduzo testes de carga para analisar e identificar fatores como capacidade de resposta e escalabilidade.</p>
-
-        <p>Automatizo a documentação de componentes usando Inteligência Artificial.</p>
-
-        <p>Além disso, contribuo ativamente na modernização de sistemas legado, migrando para tecnologias mais atuais e escaláveis.</p>
-      </div>
-      <div class="border border-white rounded-4 p-3 card">
-        <h4 class="mb-3">Estágiario — Elógica Processamento de Dados</h4>
-        <small>2023 - 2024</small>
-        <p class="mt-3">Responsável pelo desenvolvimento, manutenção de interfaces responsivas e consumo de APIs utilizando Angular.</p>
-      </div>
-    </div>
-
-    <div data-aos="fade-up">
-      <h3 class="text-center text-color-primary mt-3 mb-4">ACADÊMICAS</h3>
-      <div class="mb-4 border border-white rounded-4 p-3 card">
-        <h4 class="mb-3">Bolsista - Programa de Extensão Tecnológica (FACEPE)</h4>
-        <small>2022 - 2023</small>
-        <p class="mt-3 fw-bolder">Inteligência nos Negócios com uso de IA, Machine Learning e BI</p>
-
-        <p>Responsável pela criação de dashboards interativos no Power BI, transformando dados em insights visuais auxiliando na tomada de decisões.</p>
-      </div>
-      <div class="border border-white rounded-4 p-3 card">
-        <h4 class="mb-3">Bolsista - Programa de Extensão Tecnológica (FACEPE)</h4>
-        <small>2022</small>
-        <p class="mt-3 fw-bolder">Chatbot para agendamento de consultas ambulatoriais e procedimentos cirúrgicos</p>
-
-        <p>Responsável pela prototipação e design da interface no Figma, focando em uma experiência de uso intuitiva e eficiente.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="text-white py-6 mb-3" id="depoimentos" data-aos="fade-right">
-    <h1 class="text-center my-4">DEPOIMENTOS</h1>
-
-    <div class="depoimentos-container d-flex gap-3 px-4">
-      <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
-        <p>"Profissional dedicado. Sempre entrega interfaces limpas e bem estruturadas ."</p>
-        <small class="text-secondary">— Gabriela Iumatti, UI/UX Designer</small>
-      </div>
-      <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
-        <p>"Ótimo profissional, com excelente domínio em Angular e Front-End de modo geral."</p>
-        <small class="text-secondary">— Emmilly Lins, Desenvolvedora Back-End</small>
-      </div>
-      <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
-        <p>"Ronaldo está sempre disposto a aprender e contribuir com novas ideias."</p>
-        <small class="text-secondary">— Igor Sousa, Desenvolvedor Front-End</small>
-      </div>
-      <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
-        <p>"Faz um ótimo trabalho em equipe! Recomendo fortemente para qualquer projeto."</p>
-        <small class="text-secondary">— Letícia Correia, Analista de Dados</small>
-      </div>
-      <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
-        <p>"Manda muito bem no front! Sempre entrega telas limpas, rápidas e com uma ótima experiência pro usuário."</p>
-        <small class="text-secondary">— Victor Félix, UI/UX Designer</small>
-      </div>
-      <div class="border border-light rounded-4 p-3 flex-shrink-0" style="width: 300px;">
-        <p>"Demonstra profissionalismo e proatividade em todas as etapas do desenvolvimento."</p>
-        <small class="text-secondary">— Gabriel Ramalho, Product Owner</small>
-      </div>
-    </div>
-  </div>
-
-  <footer class="text-white pt-4 pb-5 bg-dark mt-5">
-    <div class="d-flex justify-content-around align-items-center">
-      <a href="https://wa.me/5581994479584" target="_blank" class="text-white text-decoration-none">
-        <i class="bi bi-whatsapp fs-1"></i>
-      </a>
-
-      <a href="https://www.linkedin.com/in/ronaldo-sabino-62053423b/" target="_blank" class="text-white text-decoration-none">
-        <i class="bi bi-linkedin fs-1"></i>
-      </a>
-
-      <a href="https://github.com/ronaldosabino" target="_blank" class="text-white text-decoration-none">
-        <i class="bi bi-github fs-1"></i>
-      </a>
-    </div>
-
-    <div class="d-flex justify-content-center align-items-center mt-5">
-      <small>© 2025 Ronaldo Sabino. Todos os direitos reservados.</small>
     </div>
   </footer>
+
 </div>
